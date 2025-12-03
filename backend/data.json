@@ -1,0 +1,36 @@
+{
+    "users_store": {
+        "1": {
+            "id": 1,
+            "username": "admin",
+            "name": "Admin User",
+            "password": "password",
+            "is_admin": true
+        },
+        "2": {
+            "id": 2,
+            "username": "emp1",
+            "name": "Employee One",
+            "password": "password",
+            "is_admin": false
+        }
+    },
+    "next_user_id": 3,
+    "jobs_store": {
+        "101": {
+            "id": 101,
+            "title": "Fix Backend Bug",
+            "description": "The API sometimes returns 500.",
+            "status": "IN_PROGRESS",
+            "assigned_to_id": 2
+        },
+        "102": {
+            "id": 102,
+            "title": "Design Homepage",
+            "description": "Create a new design for the main landing page.",
+            "status": "NOT_ALLOCATED",
+            "assigned_to_id": 0
+        }
+    },
+    "next_job_id": 103
+}

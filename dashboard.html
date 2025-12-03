@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>,
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ElectroFlow Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --primary-color: #0d47a1; --accent-color: #ffb300; --text-color: #212121; --light-bg: #e3f2fd; }
+        .text-primary { color: var(--primary-color); }
+        .bg-primary { background-color: var(--primary-color); }
+        .text-accent { color: var(--accent-color); }
+        .bg-accent { background-color: var(--accent-color); }
+    </style>
+</head>
+<body class="font-sans antialiased text-text-color bg-light-bg">
+    <header class="bg-primary shadow-lg sticky top-0 z-10">
+        <nav class="max-w-6xl mx-auto p-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white tracking-wider">EYE-REST TECHNOLOGY</a>
+            <div class="space-x-4 flex items-center">
+                <a href="index.html" class="text-white">Home</a>
+                <a href="login.html" class="text-white">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-4 md:p-8" id="dashboard-root">
+        <div id="dashboard-view">
+            <h2 class="text-4xl font-bold text-primary mb-6" id="dashboard-title">Employee Dashboard</h2>
+
+            <!-- Admin Tools (Visible only for mock admin) -->
+            <div id="admin-tools" class="hidden bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500">
+                <h3 class="text-2xl font-semibold mb-4 text-red-700">Admin Tools: Assign New Job</h3>
+                <form id="new-job-form" class="space-y-4">
+                    <input type="text" id="job-title" placeholder="Job Title" required class="w-full p-2 border rounded-md">
+                    <textarea id="job-description" placeholder="Job Description" rows="3" required class="w-full p-2 border rounded-md"></textarea>
+                    <div class="relative">
+                        <input type="text" id="assign-user-input" placeholder="Type user name or leave empty for Not Allocated" class="w-full p-2 border rounded-md">
+                        <input type="hidden" id="assigned-user-id" value="0">
+                        <div id="user-dropdown" class="hidden absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-md shadow-lg z-10 max-h-48 overflow-y-auto mt-1">
+                            <!-- User options will be populated here -->
+                        </div>
+                    </div>
+                    <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 w-full">Assign Job</button>
+                </form>
+            </div>
+
+            <!-- Job List -->
+            <div id="job-list" class="space-y-4">
+                <!-- Job cards will be inserted here by JavaScript -->
+            </div>
+
+            <div id="no-jobs" class="hidden text-center p-6 bg-white rounded-xl shadow-inner text-gray-600">
+                <p class="font-medium">No tasks assigned yet.</p>
+                <p class="text-sm mt-2">If you are an admin, try assigning a new job from the form above.</p>
+            </div>
+
+            <button onclick="logout()" class="mt-8 bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-gray-600 transition duration-300">Logout</button>
+        </div>
+
+    </main>
+
+    <footer class="bg-primary text-white text-center p-4 mt-12">
+        <p>&copy; 2025 Eye-Rest Technology. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EYE-REST TECHNOLOGY - Frontend Mockup</title>
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <style>
+            /* Hero slider styles */
+            .hero-slider { background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.1)); }
+            .hero-slide img { display: block; width: 100%; height: 100%; }
+            .hero-slide.hidden { opacity: 0; pointer-events: none; }
+            .hero-slide.show { opacity: 1; pointer-events: auto; }
+        /* Custom styles for professional appearance */
+        :root {
+            --primary-color: #0d47a1; /* Darker Blue for Electrical Theme */
+            --accent-color: #ffb300; /* Amber/Orange for Electrical Pop */
+            --text-color: #212121; /* Dark text */
+            --light-bg: #e3f2fd; /* Light blue background */
+        }
+        .text-primary { color: var(--primary-color); }
+        .bg-primary { background-color: var(--primary-color); }
+        .text-accent { color: var(--accent-color); }
+        .bg-accent { background-color: var(--accent-color); }
+        
+        .job-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Status colors for the mock dashboard */
+        .status-allocated { border-left: 4px solid #3b82f6; /* Blue */ }
+        .status-done { border-left: 4px solid #10b981; /* Green */ }
+        .status-not_allocated { border-left: 4px solid #f59e0b; /* Amber */ }
+    </style>
+</head>
+<body class="font-sans antialiased text-text-color bg-light-bg">
+    <!-- Navigation --><header class="bg-primary shadow-lg sticky top-0 z-10">
+        <nav class="max-w-6xl mx-auto p-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white tracking-wider">EYE-REST TECHNOLOGY</h1>
+            <div class="space-x-4 flex items-center" id="nav-links">
+                <a href="#home" class="nav-link text-white hover:text-accent transition duration-300">Home</a>
+                <a href="#projects" class="nav-link text-white hover:text-accent transition duration-300">Services</a>
+                <a href="#testimonials" class="nav-link text-white hover:text-accent transition duration-300">Testimonials</a>
+                <a href="#contact" class="nav-link text-white hover:text-accent transition duration-300">Contact</a>
+                <button id="login-button" class="bg-accent text-primary font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-yellow-400 transition duration-300">Login</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area --><main class="max-w-6xl mx-auto p-4 md:p-8">
+        
+        <!-- 1. Landing Page Sections --><div id="landing-page" class="space-y-16">
+            
+            <!-- Home Section - Updated with Electrical Theme --><section id="home" class="bg-white p-10 rounded-xl shadow-2xl flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2">
+                    <h2 class="text-5xl font-extrabold text-primary mb-4">Your Trusted Partner in Electrical & Security Solutions.</h2>
+                    <p class="text-xl text-gray-600 mb-6">Eye-Rest Technology specializes in cutting-edge alarm installation, robust electrical fencing, sustainable solar power, and comprehensive CCTV systems for your home or business.</p>
+                    <a href="#contact" class="inline-block bg-accent text-primary font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-600 transition duration-300 transform hover:scale-105">Get a Free Quote</a>
+                </div>
+                <div id="heroCarousel" class="w-full md:w-1/2 h-56 md:h-72 overflow-hidden rounded-lg shadow-lg relative hero-slider">
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-100">
+                        <img src="https://thumbs.dreamstime.com/b/dive-captivating-world-minimalist-electrical-backgrounds-where-abstract-power-energy-brought-to-life-353829204.jpg" alt="Electric 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 pointer-events-none">
+                        <img src="https://thumbs.dreamstime.com/b/various-electrician-equipment-tools-gray-metalic-background-top-view-electrician-equipment-metalic-background-top-view-164688877.jpg" alt="Electric 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 pointer-events-none">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/040/995/143/small/ai-generated-fields-of-solar-panels-and-systems-to-produce-green-electricity-ai-generated-photo.jpg" alt="Electric 3" class="w-full h-full object-cover">
+                    </div>
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 pointer-events-none">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRaYjdnz08sIcTrobB4CV_UMn7I_7902g-SA&s" alt="Electric 4" class="w-full h-full object-cover">
+                    </div>
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 pointer-events-none">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrUvwwXsJxtYEU5dZHnucBBCdQZGiP6nhWuw&s" alt="Electric 5" class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Small pagination dots -->
+                    <div class="absolute bottom-3 left-0 right-0 flex justify-center space-x-2 z-10">
+                        <button class="dot w-2 h-2 rounded-full bg-white bg-opacity-60 border-2 border-white" data-index="0"></button>
+                        <button class="dot w-2 h-2 rounded-full bg-white bg-opacity-30" data-index="1"></button>
+                        <button class="dot w-2 h-2 rounded-full bg-white bg-opacity-30" data-index="2"></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services/Projects Section - Updated with specific services --><section id="projects" class="space-y-6">
+                <h2 class="text-4xl font-bold text-center text-primary">Our Expert Services & Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Service 1: Alarm Installation --><div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-accent">
+                        <img src="https://asmintegrators.com/wp-content/uploads/2020/06/Fire-Alarm-Installation-and-The-Crucial-Role-It-Plays-in-Safeguarding-Your-Business.jpg" 
+                             alt="Alarm Installation" class="w-full h-36 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Alarm Systems</h3>
+                        <p class="text-gray-600">State-of-the-art alarm systems for maximum security and peace of mind.</p>
+                    </div>
+                    
+                    <!-- Service 2: Electrical Fencing --><div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-accent">
+                        <img src="https://keensight.co.ke/categories/Electric-Fences-Razor.jpg" 
+                             alt="Electrical Fencing" class="w-full h-36 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Electrical Fencing</h3>
+                        <p class="text-gray-600">Reliable and robust electric fence installations for perimeter security.</p>
+                    </div>
+
+                    <!-- Service 3: Solar Installation --><div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-accent">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStALQToulmUfbFoQTbEV7HudKyUDvtxF6OXA&s" 
+                             alt="Solar Installation" class="w-full h-36 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Solar Power Systems</h3>
+                        <p class="text-gray-600">Harnessing solar energy for efficient and sustainable power solutions.</p>
+                    </div>
+
+                    <!-- Service 4: CCTV Installation --><div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-accent">
+                        <img src="https://www.techcube.co.uk/wp-content/uploads/2019/07/how-to-install-cctv.jpg" 
+                             alt="CCTV Installation" class="w-full h-36 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-primary mb-2">CCTV Systems</h3>
+                        <p class="text-gray-600">Comprehensive video surveillance for enhanced security and monitoring.</p>
+                    </div>
+                    <!--Service 5:Biometric Installation--><div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-accent">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNOTXUsf1QLJojQvzRB4o3NdimwoZ5nvXVLw&s" 
+                             alt="Biometric Installation" class="w-full h-36 object-cover rounded-md mb-4">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Biometric Systems</h3>
+                        <p class="text-gray-600">Advanced biometric installations for secure and convenient access control.</p>
+                </div>
+            </section>
+
+            <!-- Testimonials Section --><section id="testimonials" class="space-y-6 bg-gray-100 p-8 rounded-xl">
+                <h2 class="text-4xl font-bold text-center text-primary">What Our Clients Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-xl border-l-4 border-blue-600">
+                        <p class="italic text-gray-700">"Eye-rest technology installed our entire security system. Professional, efficient, and the system works flawlessly."</p>
+                        <p class="mt-4 font-semibold text-primary">- Maria Wairimu, Business Owner</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-xl border-l-4 border-blue-600">
+                        <p class="italic text-gray-700">"Our solar installation was seamless. Great communication and fantastic results, highly recommend."</p>
+                        <p class="mt-4 font-semibold text-primary">- David Okelo, Homeowner</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-xl border-l-4 border-blue-600">
+                        <p class="italic text-gray-700">"The CCTV system installed by Eye-rest technology has significantly improved our security. Excellent service."</p>
+                        <p class="mt-4 font-semibold text-primary">- Sarah Njeri, Property Manager</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-x1 shadow-x1 border-1-4 border-blue-600">
+                        <p class="italic text-gray-700">"The Biometric installed by Eye-rest technology has signicantly improved our access to our company and enhanced the company security access."</p>
+                        <p class="mt-4 font-semibold text-primary">- Josephine Masaai, Security Manager</p>
+                    </div>    
+                </div>
+            </section>
+
+            <!-- Contact Section --><section id="contact" class="space-y-6">
+                <h2 class="text-4xl font-bold text-center text-primary">Get In Touch</h2>
+                <div class="bg-white p-8 rounded-xl shadow-2xl max-w-lg mx-auto">
+                    <form action="#" method="POST" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring focus:ring-accent focus:ring-opacity-50 p-2" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring focus:ring-accent focus:ring-opacity-50 p-2" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring focus:ring-accent focus:ring-opacity-50 p-2" placeholder="How can we help?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-800 transition duration-300">Send Message</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+
+    </main>
+    
+    <!-- Footer --><footer class="bg-primary text-white text-center p-4 mt-12">
+        <p>&copy; 2025 EYE-REST TECHNOLOGY. All rights reserved.</p>
+    </footer>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
