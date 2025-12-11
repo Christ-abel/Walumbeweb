@@ -1,67 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>,
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - ElectroFlow Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { --primary-color: #0d47a1; --accent-color: #ffb300; --text-color: #212121; --light-bg: #e3f2fd; }
+        :root { --primary-color: #0d47a1; --accent-color: #ffb300; }
         .text-primary { color: var(--primary-color); }
         .bg-primary { background-color: var(--primary-color); }
-        .text-accent { color: var(--accent-color); }
         .bg-accent { background-color: var(--accent-color); }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .animate-fade-in { animation: fadeIn 0.2s ease-out; }
     </style>
 </head>
-<body class="font-sans antialiased text-text-color bg-light-bg">
+<body class="bg-gray-100 font-sans text-gray-800">
+
     <header class="bg-primary shadow-lg sticky top-0 z-10">
         <nav class="max-w-6xl mx-auto p-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold text-white tracking-wider">EYE-REST TECHNOLOGY</a>
-            <div class="space-x-4 flex items-center">
-                <a href="index.html" class="text-white">Home</a>
-                <a href="login.html" class="text-white">Login</a>
+            <div class="flex items-center space-x-4">
+                <span id="user-role-display" class="text-white text-sm bg-blue-800 px-3 py-1 rounded-full hidden md:block">Loading Role...</span>
+                <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm transition">Logout</button>
             </div>
         </nav>
     </header>
 
-    <main class="max-w-6xl mx-auto p-4 md:p-8" id="dashboard-root">
-        <div id="dashboard-view">
-            <h2 class="text-4xl font-bold text-primary mb-6" id="dashboard-title">Employee Dashboard</h2>
+    <main class="max-w-4xl mx-auto p-6" id="dashboard-root">
+        
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-3xl font-bold text-primary" id="dashboard-title">Dashboard</h2>
+        </div>
 
-            <!-- Admin Tools (Visible only for mock admin) -->
-            <div id="admin-tools" class="hidden bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500">
-                <h3 class="text-2xl font-semibold mb-4 text-red-700">Admin Tools: Assign New Job</h3>
-                <form id="new-job-form" class="space-y-4">
-                    <input type="text" id="job-title" placeholder="Job Title" required class="w-full p-2 border rounded-md">
-                    <textarea id="job-description" placeholder="Job Description" rows="3" required class="w-full p-2 border rounded-md"></textarea>
-                    <div class="relative">
-                        <input type="text" id="assign-user-input" placeholder="Type user name or leave empty for Not Allocated" class="w-full p-2 border rounded-md">
-                        <input type="hidden" id="assigned-user-id" value="0">
-                        <div id="user-dropdown" class="hidden absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-md shadow-lg z-10 max-h-48 overflow-y-auto mt-1">
-                            <!-- User options will be populated here -->
-                        </div>
+        <div id="admin-tools" class="block bg-white p-6 rounded-xl shadow-lg mb-8 border-l-4 border-yellow-500 relative">
+            <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                <span class="bg-yellow-500 text-white w-6 h-6 rounded-full flex items-center justify-center mr-2 text-sm">+</span> 
+                Assign New Job
+            </h3>
+            
+            <form id="new-job-form" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-sm font-semibold text-gray-600">Task Title</label>
+                        <input type="text" id="job-title" placeholder="e.g. Fix CCTV Camera" required 
+                               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
                     </div>
-                    <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 w-full">Assign Job</button>
-                </form>
-            </div>
+                    
+                    <div class="relative">
+                        <label class="text-sm font-semibold text-gray-600">Assign To</label>
+                        <input type="text" id="assign-user-input" placeholder="Select Employee..." autocomplete="off"
+                               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none cursor-pointer">
+                        <input type="hidden" id="assigned-user-id" value="0">
+                        <div id="user-dropdown" class="hidden absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-lg shadow-xl z-20 max-h-48 overflow-y-auto mt-1"></div>
+                    </div>
+                </div>
 
-            <!-- Job List -->
-            <div id="job-list" class="space-y-4">
-                <!-- Job cards will be inserted here by JavaScript -->
-            </div>
+                <div>
+                    <label class="text-sm font-semibold text-gray-600">Description</label>
+                    <textarea id="job-description" placeholder="Describe the work to be done..." rows="2" required 
+                              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                </div>
 
-            <div id="no-jobs" class="hidden text-center p-6 bg-white rounded-xl shadow-inner text-gray-600">
-                <p class="font-medium">No tasks assigned yet.</p>
-                <p class="text-sm mt-2">If you are an admin, try assigning a new job from the form above.</p>
-            </div>
+                <div class="text-right">
+                    <button type="submit" class="bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-800 transition duration-300 shadow-md">
+                        Create & Assign Task
+                    </button>
+                </div>
+            </form>
+        </div>
 
-            <button onclick="logout()" class="mt-8 bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-gray-600 transition duration-300">Logout</button>
+        <div id="job-list" class="space-y-4">
+            <p class="text-center text-gray-500">Loading tasks...</p>
         </div>
 
     </main>
 
-    <footer class="bg-primary text-white text-center p-4 mt-12">
-        <p>&copy; 2025 Eye-Rest Technology. All rights reserved.</p>
+    <footer class="bg-gray-200 text-center p-4 mt-12 text-sm text-gray-600">
+        <p>&copy; 2025 Eye-Rest Technology. System v2.0</p>
     </footer>
 
     <script src="script.js"></script>

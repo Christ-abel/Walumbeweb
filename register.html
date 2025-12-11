@@ -7,55 +7,45 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root { --primary-color: #0d47a1; --accent-color: #ffb300; --text-color: #212121; --light-bg: #e3f2fd; }
-        .text-primary { color: var(--primary-color); }
-        .bg-primary { background-color: var(--primary-color); }
-        .text-accent { color: var(--accent-color); }
         .bg-accent { background-color: var(--accent-color); }
     </style>
 </head>
-<body class="font-sans antialiased text-text-color bg-light-bg">
-    <header class="bg-primary shadow-lg sticky top-0 z-10">
-        <nav class="max-w-6xl mx-auto p-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-white tracking-wider">EYE-REST TECHNOLOGY</a>
-            <div class="space-x-4 flex items-center">
-                <a href="index.html" class="text-white">Home</a>
-                <a href="login.html" class="text-white">Login</a>
-            </div>
-        </nav>
-    </header>
-
-    <main class="max-w-md mx-auto p-6 mt-12 bg-white rounded-xl shadow-2xl">
-        <h2 class="text-3xl font-bold text-primary mb-6 text-center">Register</h2>
+<body class="bg-gray-100">
+    <div class="max-w-md mx-auto p-6 mt-12 bg-white rounded-xl shadow-2xl">
+        <h2 class="text-3xl font-bold text-center mb-6" style="color: #0d47a1;">Register</h2>
+        
         <form id="register-form" class="space-y-4">
             <div>
-                <label for="reg-name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                <input type="text" id="reg-name" name="reg-name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring focus:ring-accent focus:ring-opacity-50 p-2">
+                <label class="block text-sm font-medium text-gray-700">Full Name</label>
+                <input type="text" id="reg-name" required class="w-full p-2 border rounded-md">
             </div>
             <div>
-                <label for="reg-username" class="block text-sm font-medium text-gray-700">Username</label>
-                <input type="text" id="reg-username" name="reg-username" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring focus:ring-accent focus:ring-opacity-50 p-2">
+                <label class="block text-sm font-medium text-gray-700">Username</label>
+                <input type="text" id="reg-username" required class="w-full p-2 border rounded-md">
             </div>
             <div>
-                <label for="reg-password" class="block text-sm font-medium text-gray-700">Password</label>
-                <input type="password" id="reg-password" name="reg-password" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent focus:ring focus:ring-accent focus:ring-opacity-50 p-2">
+                <label class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="reg-password" required class="w-full p-2 border rounded-md">
             </div>
-            <fieldset class="text-sm">
-                <legend class="font-medium text-gray-700">Role</legend>
+            <fieldset>
+                <legend class="text-sm font-medium text-gray-700">Role</legend>
                 <label class="inline-flex items-center mr-4">
-                    <input type="radio" name="role" value="employee" checked class="form-radio"> <span class="ml-2">Employee</span>
+                    <input type="radio" name="role" value="employee" checked> <span class="ml-2">Employee</span>
                 </label>
                 <label class="inline-flex items-center">
-                    <input type="radio" name="role" value="admin" class="form-radio"> <span class="ml-2">Admin</span>
+                    <input type="radio" name="role" value="admin"> <span class="ml-2">Admin</span>
                 </label>
             </fieldset>
-            <button type="submit" class="w-full bg-accent text-white font-semibold py-2 px-4 rounded-lg hover:bg-yellow-600 transition duration-300">Create Account</button>
-        </form>
-        <p class="mt-4 text-sm text-gray-600 text-center">Already have an account? <a href="login.html" class="text-primary font-semibold">Login here</a>.</p>
-    </main>
 
-    <footer class="bg-primary text-white text-center p-4 mt-12">
-        <p>&copy; 2025 ElectroFlow Solutions. All rights reserved.</p>
-    </footer>
+            <button type="submit" class="w-full bg-accent text-white font-bold py-2 px-4 rounded-lg hover:bg-yellow-600 transition duration-300">
+                Create Account
+            </button>
+        </form>
+        
+        <p class="mt-4 text-center text-sm">
+            Already have an account? <a href="login.html" class="text-blue-600 font-bold">Login here</a>
+        </p>
+    </div>
 
     <script src="script.js"></script>
 </body>

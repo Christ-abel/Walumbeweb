@@ -9,28 +9,28 @@
         },
         "2": {
             "id": 2,
-            "username": "emp1",
-            "name": "Employee One",
-            "password": "password",
+            "username": "Gloria",
+            "name": "Gloria Walumbe",
+            "password": "Walumbe2.",
             "is_admin": false
+        },
+        "3": {
+            "id": 3,
+            "username": "Christa",
+            "name": "Christabel Walumbe",
+            "password": "Walumbe1.",
+            "is_admin": true
         }
     },
-    "next_user_id": 3,
+    "next_user_id": 4,
     "jobs_store": {
         "101": {
             "id": 101,
-            "title": "Fix Backend Bug",
-            "description": "The API sometimes returns 500.",
-            "status": "IN_PROGRESS",
-            "assigned_to_id": 2
-        },
-        "102": {
-            "id": 102,
-            "title": "Design Homepage",
-            "description": "Create a new design for the main landing page.",
-            "status": "NOT_ALLOCATED",
-            "assigned_to_id": 0
+            "title": "Alarm installer",
+            "description": "install the alarm at peponi road gate number 123",
+            "status": "DONE",
+            "assignedToId": 2
         }
     },
-    "next_job_id": 103
+    "next_job_id": 102
 }
